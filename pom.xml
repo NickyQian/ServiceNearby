@@ -14,6 +14,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- struts2 -->
     <dependency>
 	   <groupId>org.apache.struts</groupId>
 	   <artifactId>struts2-core</artifactId>
@@ -29,7 +30,40 @@
    <artifactId>javassist</artifactId>
    <version>3.8.0.GA</version>
    </dependency>
+   
+   <!-- hibernate 3 -->
+   <dependency>
+	 <groupId>org.slf4j</groupId>
+	 <artifactId>slf4j-nop</artifactId>
+	 <version>1.5.2</version>
+   </dependency>
+   <dependency>
+	 <groupId>c3p0</groupId>
+	 <artifactId>c3p0</artifactId>
+	 <version>0.9.1.2</version>
+  </dependency>
+   <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>3.3.2.GA</version>
+   </dependency>
+   <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-annotations</artifactId>
+       <version>3.4.0.GA</version>
+    </dependency>
+     <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-commons-annotations</artifactId>
+       <version>3.3.0.ga</version>
+    </dependency>
+    <dependency>  
+        <groupId>mysql</groupId>  
+        <artifactId>mysql-connector-java</artifactId>  
+        <version>5.0.5</version>  
+    </dependency> 
   </dependencies>
+  
   <build>
     <finalName>ServiceNearby</finalName>
 	<plugins>
