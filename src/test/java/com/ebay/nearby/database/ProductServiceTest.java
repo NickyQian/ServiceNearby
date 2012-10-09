@@ -1,19 +1,18 @@
-package com.ebay.nearby.database.test;
-
+package com.ebay.nearby.database;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.ebay.nearby.database.dao.ProductDao;
 import com.ebay.nearby.database.entity.Product;
-import com.ebay.nearby.database.service.ProductService;
-import com.ebay.nearby.database.service.imp.ProductServiceImp;
+import com.ebay.nearby.database.service.imp.ProductDaoImp;
 
 public class ProductServiceTest {
-	public static ProductService productServ;
+	public static ProductDao productServ;
 	@Test
 	public void testFindProductById(){
-		productServ = new ProductServiceImp();
+		productServ = new ProductDaoImp();
 		Product p = new Product();
 		p.setTitle("test");
 		p.setPrice("200");
