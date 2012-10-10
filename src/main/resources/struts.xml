@@ -9,7 +9,7 @@
 	<action name="">
 		<result>/index.jsp</result>
 	</action>
-	<action name="test" class="com.ebay.nearby.action.HelloWorld" method="execute">
+	<action name="test" class="com.ebay.nearby.action.HelloWorldAction" method="execute">
 		<result name="success">/welcome.jsp</result>
 	</action>
 </package>
