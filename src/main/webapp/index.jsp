@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>hello</title>
+<title>eBay Service Nearby</title>
 </head>
 <body>
-	<h2>Hello World!</h2>
+	<h2>Go to Location Page!</h2>
 	<form action="test" method="post">
-	<input type="submit" />
+	<input type="submit" value = "Go" />
 	</form>
 </body>
 </html>
