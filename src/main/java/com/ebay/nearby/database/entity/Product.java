@@ -14,6 +14,12 @@ public class Product {
 	private int id;
 	private String title;
 	private String price;
+	private Location location;
+	private String imgUrl;
+	private String imgUrlBig;
+	private Seller seller;
+	private String detail;
+	private TimeInterval interval;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

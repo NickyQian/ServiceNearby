@@ -1,8 +1,8 @@
 package com.ebay.nearby.database.entity;
 
-public class Seller {
+public class Location {
 	private int id;
 	private String name;
-	private boolean isTopSeller;
-	private String phoneNumber;
+	private double l;
+	private double w;
 }
