@@ -1,5 +1,5 @@
 #surefire
-#Sun Nov 25 15:23:41 CST 2012
+#Sun Nov 25 15:31:34 CST 2012
 dirscanner.0.params=D\:\\indigo's worksplace\\ServiceNearby\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
 enableAssertions=true
 testSuiteDefinitionTestSourceDirectory=D\:\\indigo's worksplace\\ServiceNearby\\src\\test\\java
