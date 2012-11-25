@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.net.URLDecoder"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -15,13 +15,14 @@
 		String detailLoc = URLDecoder.decode(request.getParameter("detailLoc"));
 	%>
 	
-	<h2>你的位置：</h2>
-	<h3><label id="provLabel"><%=province %></label>省
-	    <label id="cityLabel"><%=city %></label>市    
-	    <label id="distLabel"><%=district %></label>区    
+	<h2>Your Location</h2>
+	<h3>
+		<div>Province: <label id="provLabel"><%=province %></label></div>
+	    <div>City: <label id="cityLabel"><%=city %></label></div>
+	    <div>District: <label id="distLabel"><%=district %></label></div>    
 	    <br />
 	    <br />
 	    <label id="detaLabel"><%=detailLoc %></label></h3>
-	<button onclick="resetLoc()">重新选择</button>
+	<button onclick="resetLoc()">Reset</button>
 </body>
 </html>

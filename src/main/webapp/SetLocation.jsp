@@ -8,45 +8,49 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>
-	请选择你的位置：
-	<br />
-	<br />
-	<select id="province">
-		<option value="EMPTY" selected="selected">请选择</option>
-		<option value="SH">上海</option>
-	</select>
-	省
-	<select id="city">
-		<option value="EMPTY" selected="selected">请选择</option>
-		<option value="SH">上海</option>
-	</select>
-	市
-	<br />
-	<br />
-	<select id="district">
-		<option value="EMPTY" selected="selected">请选择</option>
-		<option value="BS">宝山</option>
-		<option value="PD">浦东</option>
-		<option value="PT">普陀</option>
-		<option value="JA">静安</option>
-		<option value="ZB">闸北</option>
-		<option value="HK">虹口</option>
-		<option value="YP">杨浦</option>
-		<option value="JD">嘉定</option>
-		<option value="CN">长宁</option>
-		<option value="HP">黄浦</option>
-		<option value="LW">卢湾</option>
-		<option value="XH">徐汇</option>
-		<option value="MH">闵行</option>
-	</select>
-	区
-	<br />
-	<br />
-	详细地址<input type="text" id="detail"/>
-	<br />
-	<br />
-	<button onclick="save()">保存</button>
-	</h3>
+    <h3>
+    Choose your location：
+    <br />
+    <br />
+    <div>
+        Province: 
+        <select id="province">
+            <option value="EMPTY" selected="selected">Select...</option>
+            <option value="SH">Shanghai</option>
+        </select>
+    </div>
+    <div>
+        City:
+        <select id="city">
+            <option value="EMPTY" selected="selected">Select...</option>
+            <option value="SH">Shanghai</option>
+        </select>
+    </div>  
+    <br />
+    <div>
+        District
+        <select id="district">
+            <option value="EMPTY" selected="selected">Select...</option>
+            <option value="BS">BaoShan</option>
+            <option value="PD">PuDong</option>
+            <option value="PT">PuTuo</option>
+            <option value="JA">JingAn</option>
+            <option value="ZB">ZhaBei</option>
+            <option value="HK">HongKou</option>
+            <option value="YP">YangPu</option>
+            <option value="JD">JiaDing</option>
+            <option value="CN">ChangNing</option>
+            <option value="HP">HuangPu</option>
+            <option value="XH">XuHui</option>
+            <option value="MH">MinHang</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    Detail Address<input type="text" id="detail"/>
+    <br />
+    <br />
+    <button onclick="save()">Save</button>
+    </h3>
 </body>
 </html>
