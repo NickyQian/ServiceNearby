@@ -5,6 +5,7 @@ html {
 body {
 	height: 100%;  /*! for google mape */
 	margin: 5px;
+	font-family: Arial,Sans-Serif,Verdana;
 	/*padding: 5px;*/
 }
 
