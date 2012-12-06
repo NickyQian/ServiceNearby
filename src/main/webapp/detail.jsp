@@ -10,11 +10,14 @@
 <link href="http://ir.ebaystatic.com/z/mp/vtepmlq5di5djnuwo1khbcq3f.css?dataUri=true" type="text/css" rel="stylesheet">
 <link href="./css/common.css" type="text/css" rel="stylesheet">
 <link href="./css/detail.css" type="text/css" rel="stylesheet">
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
 <script type="text/javascript"
     src="https://maps.google.com/maps/api/js?libraries=geometry&sensor=false">
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script type="text/javascript" src="./js/detail.js"></script>
+
 <title>Product Detail</title>
 </head>
 <body>
@@ -49,7 +52,7 @@
                             </tr>
                             <tr>
                                 <td style = "width:33%">
-                                    <input class = "btn" type="submit" value="Avalible : 2" title="" onclick="javascript:return foralse;">
+                                    <input class = "btn" type="submit" value="Avalible : 2" title="" onclick="javascript:return false;">
                                 </td>
                                 <td style = "width:33%">
                                     <input class = "btn" type="submit" value="Avalible : 3" title="" onclick="javascript:return false;">
@@ -137,6 +140,9 @@
                     <a href="http://contact.ebay.com/ws/eBayISAPI.dll?ShowSellerFAQ&amp;iid=271110393721&amp;requested=thechocolateshoppe121&amp;redirect=0&amp;frm=284&amp;rt=nc&amp;_trksid=p2047675.l1499&amp;ssPageName=PageSellerM2MFAQ_VI">Ask a question</a>
                 </div>
             </div>
+    </div>
+    <div class = "buyBox">
+        sdfsdfsdfsdfsdaf
     </div>
 </body>
 </html>

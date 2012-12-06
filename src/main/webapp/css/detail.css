@@ -15,5 +15,15 @@ div {
 
 .btn {
 	width:300px;
-	background:-webkit-gradient(linear,0 0,0 100%,from(#6EBDE2),to(#003DAD))
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6EBDE2),to(#003DAD));
+}
+
+.buyBox {
+	display: none;
+}
+.ui-widget-header,.ui-state-default  {
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6EBDE2),to(#003DAD)) !important;
+}
+.ui-state-default .ui-widget-content .ui-state-default  .ui-state-default {
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6EBDE2),to(#003DAD)) !important;
 }

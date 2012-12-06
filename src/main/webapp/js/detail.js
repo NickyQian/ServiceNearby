@@ -12,8 +12,6 @@ function initialize() {
         mapTypeId : google.maps.MapTypeId.ROADMAP
     };
     var $s = $("#map_canvas");
-    // map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
     map = new google.maps.Map($s[0], myOptions);
 
     marker = new google.maps.Marker({
@@ -51,44 +49,18 @@ function initialize() {
     });
 }
 
-// function findPosition() {
-//     // Try W3C Geolocation (Preferred)
-//     if (navigator.geolocation) {
-//         browserSupportFlag = true;
-//         // this method is asynchronous!
-//         navigator.geolocation.getCurrentPosition(function(position) {
-//             initialLocation = new google.maps.LatLng(position.coords.latitude,
-//                     position.coords.longitude);
-//         }, function() {
-//             handleNoGeolocation(browserSupportFlag);
-//         });
-//         // Try Google Gears Geolocation
-//     } else if (google.gears) {
-//         browserSupportFlag = true;
-//         var geo = google.gears.factory.create('beta.geolocation');
-//         geo.getCurrentPosition(function(position) {
-//             initialLocation = new google.maps.LatLng(position.latitude,
-//                     position.longitude);
-//         }, function() {
-//             handleNoGeoLocation(browserSupportFlag);
-//         });
-//         // Browser doesn't support Geolocation
-//     } else {
-//         browserSupportFlag = false;
-//         handleNoGeolocation(browserSupportFlag);
-//     }
-
-//     function handleNoGeolocation(errorFlag) {
-//         if (errorFlag == true) {
-//             alert("Geolocation service failed.");
-//             initialLocation = new google.maps.LatLng(31.230393, 121.473704);
-//         } else {
-//             alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-//             initialLocation = new google.maps.LatLng(31.230393, 121.473704);
-//         }
-//     }
-// }
-
 $(document).ready(function() {
     initialize();
+    $(".btn").click(showDialog);
 });
+
+function showDialog() {
+    $(".buyBox").dialog({
+        width:400,
+        height:300,
+        title:'buy it now',
+        buttons:{
+            'OK':function(){alert("OK")}
+        }
+    });
+}
