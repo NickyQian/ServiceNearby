@@ -142,7 +142,35 @@
             </div>
     </div>
     <div class = "buyBox">
-        sdfsdfsdfsdfsdaf
+        <div style = "font-size: 15px; font-weight: bold;">
+            A brand-new, unused, unopened, undamaged item in its original packaging (where packaging is applicable)
+        </div>
+        <div>
+            <table style="margin: 10px 0 10px 0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>time :</div>
+                        </td>   
+                        <td>
+                            <div>10:00 am - 12:00 am</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Quantity:</div>
+                        </td>
+                        <td>
+                            <input type="text" size="4" value="1" name="quantity" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <span class="qtyTxt"><span id="qtySubTxt">
+                Limited quantity available / 92 sold</span>
+        </div>
     </div>
 </body>
 </html>

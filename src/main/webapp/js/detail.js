@@ -56,11 +56,12 @@ $(document).ready(function() {
 
 function showDialog() {
     $(".buyBox").dialog({
-        width:400,
-        height:300,
-        title:'buy it now',
+        modal: true,
+        width:500,
+        height:250,
+        title:'Buy It Now',
         buttons:{
-            'OK':function(){alert("OK")}
+            'BUY':function(){alert("OK")}
         }
     });
 }

@@ -5,10 +5,10 @@ var marker;
 var marker1;
 var marker2;
 function initialize() {
-    initialLocation = new google.maps.LatLng(31.230393, 121.473704);// location:Shanghai
+    initialLocation = new google.maps.LatLng(31.230393, 121.4737);// location:Shanghai
     geocoder = new google.maps.Geocoder();
     var myOptions = {
-        zoom : 10,
+        zoom : 13,
         center : initialLocation,
         mapTypeId : google.maps.MapTypeId.ROADMAP
     };
@@ -26,7 +26,7 @@ function initialize() {
     });
 
     marker1 = new google.maps.Marker({
-        position : new google.maps.LatLng(31.249554, 121.39640099999997),
+        position : new google.maps.LatLng(31.249554, 121.3964),
         map : map,
         title : "marker1",
         animation : google.maps.Animation.DROP,
@@ -34,7 +34,7 @@ function initialize() {
     });
 
     marker2 = new google.maps.Marker({
-        position : new google.maps.LatLng(31.201906, 121.58774800000003),
+        position : new google.maps.LatLng(31.201906, 121.5877),
         map : map,
         title : "marker2",
         animation : google.maps.Animation.DROP,
