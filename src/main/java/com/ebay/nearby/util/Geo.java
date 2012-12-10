@@ -29,13 +29,13 @@ public class Geo {
 
 			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = null;
-			String k = "";
+			String response = "";
 			while ((line = in.readLine())!= null) {
-				k += line + "\n";
+				response += line + "\n";
 			}
-			JSONObject response = JSONObject.fromObject(k);
-			JSONArray placeMarkArray = JSONArray.fromObject(response.get("Placemark"));
-							// get the first mark if have same marks
+			JSONObject responseJson = JSONObject.fromObject(response);
+			JSONArray placeMarkArray = JSONArray.fromObject(responseJson.get("Placemark"));
+							// get the first mark if have two more same marks
 			JSONObject placeMark = placeMarkArray.getJSONObject(0); 
 			JSONObject point = (JSONObject) placeMark.get("Point");
 			JSONArray coordinates = (JSONArray) point.get("coordinates");

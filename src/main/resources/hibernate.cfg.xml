@@ -22,6 +22,10 @@
 
 	<!-- Mapping Objects -->
 	<mapping class="com.ebay.nearby.database.entity.Product"/>
+	<mapping class="com.ebay.nearby.database.entity.Location"/>
+	<mapping class="com.ebay.nearby.database.entity.Seller"/>
+	<mapping class="com.ebay.nearby.database.entity.TimeInterval"/>
+	<mapping class="com.ebay.nearby.database.entity.UserInfo"/>
 	
 	</session-factory>
 	

@@ -3,10 +3,15 @@ package com.ebay.nearby.database.entity;
 
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "product")
@@ -42,4 +47,47 @@ public class Product {
 		this.price = price;
 	}
 	
+	 @OneToOne
+	 @Cascade(value = {CascadeType.SAVE_UPDATE})
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	public String getImgUrlBig() {
+		return imgUrlBig;
+	}
+	public void setImgUrlBig(String imgUrlBig) {
+		this.imgUrlBig = imgUrlBig;
+	}
+	
+	@OneToOne
+	public Seller getSeller() {
+		return seller;
+	}
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+	public String getDetail() {
+		return detail;
+	}
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+	
+	@OneToOne
+	public TimeInterval getInterval() {
+		return interval;
+	}
+	public void setInterval(TimeInterval interval) {
+		this.interval = interval;
+	}
+
 }
