@@ -19,7 +19,6 @@ public class ProductServiceTest {
 		productServ.insertProduct(p);
 		Product p1 = productServ.findProductById(1);
 		assertEquals("test",p1.getTitle());
-		
 		//TODO  delete the test product...
 	}
 }
