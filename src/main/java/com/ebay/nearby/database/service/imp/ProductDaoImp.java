@@ -33,6 +33,7 @@ public class ProductDaoImp implements ProductDao {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		session.save(p);
+		session.flush();
 		tx.commit();
 		session.close();
 	}

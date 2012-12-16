@@ -11,8 +11,8 @@ import javax.persistence.Table;
 public class Location {
 	private int id;
 	private String name;
-	private double l;
-	private double w;
+	private double latitude;  //latitude 纬度
+	private double longitude;  //longitude 经度
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,16 +28,18 @@ public class Location {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getL() {
-		return l;
+	public double getLatitude() {
+		return latitude;
 	}
-	public void setL(double l) {
-		this.l = l;
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
-	public double getW() {
-		return w;
+	public double getLongitude() {
+		return longitude;
 	}
-	public void setW(double w) {
-		this.w = w;
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
+
+	
 }

@@ -69,6 +69,7 @@ public class Product {
 	}
 	
 	@OneToOne
+	@Cascade(value = {CascadeType.SAVE_UPDATE})
 	public Seller getSeller() {
 		return seller;
 	}
@@ -83,6 +84,7 @@ public class Product {
 	}
 	
 	@OneToOne
+	@Cascade(value = {CascadeType.ALL})
 	public TimeInterval getInterval() {
 		return interval;
 	}

@@ -1,11 +1,15 @@
 package com.ebay.nearby.database;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import com.ebay.nearby.database.dao.AvaliableTimeDao;
+import com.ebay.nearby.database.dao.ProductDao;
 import com.ebay.nearby.database.entity.Product;
 import com.ebay.nearby.database.entity.TimeInterval;
 import com.ebay.nearby.database.service.imp.AvaliableTimeDaoImp;
+import com.ebay.nearby.database.service.imp.ProductDaoImp;
 
 public class AvaliableTimeServiceTest {
 	public static AvaliableTimeDao avaliableTimeService;
@@ -13,17 +17,18 @@ public class AvaliableTimeServiceTest {
 	public void findAvailableCounts(){
 		avaliableTimeService = new AvaliableTimeDaoImp();
 		TimeInterval ti = new TimeInterval();
+		ti.setQuantity1(3);
+		ti.setQuantity2(4);
+		ti.setQuantity3(5);
 		Product p = new Product();
-//		p.setDetail(detail);
-//		p.getLocation();
-		avaliableTimeService.findAvailableCounts(1, 1);
-		avaliableTimeService.findAvailableCounts(1, 2);
-		avaliableTimeService.findAvailableCounts(1, 3);
-//		Product p = new Product();
-//		p.setTitle("test");
-//		p.setPrice("200");
-//		productServ.insertProduct(p);
-//		Product p1 = productServ.findProductById(1);
-//		assertEquals("test",p1.getTitle());
+		ProductDao productServ = new ProductDaoImp();
+		p.setTitle("test");
+		p.setPrice("200");
+		p.setInterval(ti);
+		productServ.insertProduct(p);
+
+		assertEquals(3,avaliableTimeService.findAvailableCounts(1, 1));
+		assertEquals(4,avaliableTimeService.findAvailableCounts(1, 2));
+		assertEquals(5,avaliableTimeService.findAvailableCounts(1, 3));
 	}
 }
