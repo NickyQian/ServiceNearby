@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.ebay.nearby.database.dao.SellerDao;
-import com.ebay.nearby.database.entity.Product;
 import com.ebay.nearby.database.entity.Seller;
 import com.ebay.nearby.database.hibernate.util.HibernateUtil;
 

@@ -3,7 +3,6 @@ package com.ebay.nearby.database.hibernate.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 

@@ -5,11 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.ebay.nearby.database.dao.ProductDao;
 import com.ebay.nearby.database.dao.SellerDao;
-import com.ebay.nearby.database.entity.Product;
 import com.ebay.nearby.database.entity.Seller;
-import com.ebay.nearby.database.service.imp.ProductDaoImp;
 import com.ebay.nearby.database.service.imp.SellerDaoImp;
 
 public class SellerServiceTest {
