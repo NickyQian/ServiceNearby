@@ -22,5 +22,6 @@ public interface ProductDao {
 	// Type may not be int.
 	public void bookTimeForService(int productId, int intervalNumber);
 	public void bookTimeForService(int productId, TimeInterval intervalNumber);
+	
 
 }
