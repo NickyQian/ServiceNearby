@@ -48,8 +48,8 @@
     <br>
     <div class = "mainBody">
         <div class = "top">
-            <div><form action="test" method="post">
-                What's Your Interest : <input id="address" type="textbox" value=""
+            <div><form action="search" method="get">
+                What's Your Interest : <input id="interest" name = "interest" type="textbox" value=""
                     onkeydown="keySubmit()"> <input type="submit" id="submitLoc"
                     value="Search Now!" onclick="codeAddress()">
                   </form>
