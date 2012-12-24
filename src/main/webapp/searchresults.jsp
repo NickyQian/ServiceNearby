@@ -43,8 +43,8 @@ html {
     <jsp:include page="head.jsp"></jsp:include>
     <br />
     <div class= "mainBody">
-    <s:property value="product.detail"/>
     <s:property value="interest"/>
+    <s:property value="searchresult.interest"/>
         <div>
             What's Your Interest : <input id="address" type="textbox" value=""
                 onkeydown="keySubmit()"> <input type="button" id="submitLoc"
@@ -142,7 +142,7 @@ html {
                                 </div>
                             </div>
                         </td>
-                    </tr> 
+                    </tr>
                     <tr> 
                         <td align="center">
                             <div class = "item">

@@ -1,14 +1,23 @@
 package com.ebay.nearby.action;
 
-import com.ebay.nearby.database.entity.Product;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.ebay.nearby.database.entity.Location;
+import com.ebay.nearby.vo.IndexVO;
+import com.ebay.nearby.vo.SearchResultVO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchProductAction extends  ActionSupport  {	
-
 	private static final long serialVersionUID = 1L;
-
-	private Product product;
+	
+	private HttpServletResponse response = ServletActionContext.getResponse();
+	private HttpServletRequest request = ServletActionContext.getRequest();
 	private String interest;
+	private SearchResultVO searchresult;
 	
 	public String getInterest() {
 		return interest;
@@ -16,18 +25,43 @@ public class SearchProductAction extends  ActionSupport  {
 	public void setInterest(String interest) {
 		this.interest = interest;
 	}
-	public Product getProduct() {
-		return product;
+	
+	public SearchResultVO getSearchresult() {
+		return searchresult;
 	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-	public String execute() throws Exception {
-		Product product = new Product();
-		product.setDetail("Test");
-		this.setProduct(product);
-//		this.setInterest("pp");
-		return SUCCESS;
+	public void setSearchresult(SearchResultVO searchresult) {
+		this.searchresult = searchresult;
 	}
 	
+	public String execute() throws Exception {
+
+		Location location = (Location) request.getAttribute("location");
+		if(location==null){
+			Cookie[] cookies = request.getCookies();
+			location = new Location();
+			int i = 0;
+			for(;i < cookies.length; i++) {
+				if(cookies[i].getName().equals("location")) {
+					location = IndexVO.getLocation(cookies[i].getValue());
+					request.setAttribute("location",location);
+					break;
+				}
+			}
+			if(i == cookies.length) {// set default location session/cookie
+				// session and cookie
+//			request.setAttribute("abc", "1");
+//			Cookie cookie = new Cookie("abc", "location");
+//			cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
+//			response.addCookie(cookie);
+//			request.getCookies();			
+			}
+		}
+			
+		if (interest==null){
+			this.setInterest("");
+		}
+		searchresult = new SearchResultVO(interest,location);
+		this.setSearchresult(searchresult);
+		return SUCCESS;
+	}
 }
