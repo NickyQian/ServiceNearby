@@ -3,6 +3,7 @@ package com.ebay.nearby.action;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -34,8 +35,9 @@ public class SearchProductAction extends  ActionSupport  {
 	}
 	
 	public String execute() throws Exception {
-
-		Location location = (Location) request.getAttribute("location");
+		HttpSession session = request.getSession();
+		
+		Location location = (Location) session.getAttribute("location");
 		if(location==null){
 			Cookie[] cookies = request.getCookies();
 			location = new Location();
@@ -43,23 +45,24 @@ public class SearchProductAction extends  ActionSupport  {
 			for(;i < cookies.length; i++) {
 				if(cookies[i].getName().equals("location")) {
 					location = IndexVO.getLocation(cookies[i].getValue());
-					request.setAttribute("location",location);
+					session.setAttribute("location",location);
 					break;
 				}
 			}
 			if(i == cookies.length) {// set default location session/cookie
 				// session and cookie
-//			request.setAttribute("abc", "1");
-//			Cookie cookie = new Cookie("abc", "location");
-//			cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
-//			response.addCookie(cookie);
-//			request.getCookies();			
+				location = IndexVO.getLocation("zhangjianggaoke");
+				session.setAttribute("location",location);
+				Cookie cookie = new Cookie("location", "zhangjianggaoke");
+				cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
+				response.addCookie(cookie);
 			}
 		}
-			
+		
 		if (interest==null){
 			this.setInterest("");
 		}
+		
 		searchresult = new SearchResultVO(interest,location);
 		this.setSearchresult(searchresult);
 		return SUCCESS;

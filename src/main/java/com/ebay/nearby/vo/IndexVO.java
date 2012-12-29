@@ -4,23 +4,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ebay.nearby.database.dao.LocationDao;
+import com.ebay.nearby.database.dao.ProductDao;
 import com.ebay.nearby.database.entity.Location;
 import com.ebay.nearby.database.entity.Product;
-import com.ebay.nearby.database.service.imp.LocationDaoImp;
+import com.ebay.nearby.database.service.imp.ProductDaoImp;
 import com.ebay.nearby.util.Geo;
 
 public class IndexVO {
 	private List<String> imgStr;
-	private String locationName;	
+	private String locationName;
+	private String test;
 //	public IndexVO(){}
 	
-	public IndexVO(String locationName, List<Product> product){
-		imgStr = new ArrayList<String>();
-		for(Product p : product){
-			String img = p.getImgUrlBig();
-			imgStr.add(img);
-		}
+	public String getTest() {
+		return test;
+	}
+
+	public void setTest(String test) {
+		this.test = test;
+	}
+
+	public IndexVO(String locationName){
+		this.locationName = locationName;
+		Location location = getLocation(locationName);
+		this.imgStr = findProductImgsByLocation(location);
+		this.test = "Test";
 	}
 
 	public List<String> getImgStr() {
@@ -53,6 +61,15 @@ public class IndexVO {
 		}
 //		locationService.insertLocation(location);
 		return location;
+	}
+	public static List<String> findProductImgsByLocation(Location location) {
+		ProductDao productService = new ProductDaoImp();
+		List<Product> products = productService.findProductsByLocation(location);
+		List<String> imgs = new ArrayList<String>();
+		for(Product p : products) {
+			imgs.add(p.getImgUrlBig());
+		}
+		return imgs;
 	}
 	
 }

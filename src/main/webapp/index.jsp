@@ -2,6 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page import="java.net.URLEncoder"%>
 <!DOCTYPE html>
 <html>
@@ -47,6 +48,7 @@
     <jsp:include page="head.jsp"></jsp:include>
     <br>
     <div class = "mainBody">
+    <s:property value="indexvo.test"/>
         <div class = "top">
             <div><form action="search" method="get">
                 What's Your Interest : <input id="interest" name = "interest" type="textbox" value=""
@@ -71,6 +73,10 @@
             </div>
 
            <div id="location">
+           <form action="set" method="post">
+           <input type="text" name = "locationName" value = "1" />
+           	<input type="submit" value = "set" />
+           </form>
                 <div id="displayLoc" style="display: none">
                     <jsp:include page="displaylocation.jsp">
                         <jsp:param name="province" value="<%=URLEncoder.encode(province)%>"></jsp:param>

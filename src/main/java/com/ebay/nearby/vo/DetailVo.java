@@ -1,5 +1,8 @@
 package com.ebay.nearby.vo;
 
-public class DetailVo {
+import com.ebay.nearby.database.entity.Product;
 
+public class DetailVo {
+	private Product product;
+	// more information about product
 }

@@ -32,7 +32,7 @@ public class Geo {
 			// connection.setRequestProperty("connection", "Keep-Alive");
 
 			in = new BufferedReader(new InputStreamReader(
-					connection.getInputStream()));
+					connection.getInputStream(),"utf-8"));
 			String line = null;
 			String response = "";
 			while ((line = in.readLine()) != null) {
