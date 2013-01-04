@@ -14,7 +14,7 @@ public class IndexVO {
 	private List<String> imgStr;
 	private String locationName;
 	private String test;
-//	public IndexVO(){}
+	public IndexVO(){}
 	
 	public String getTest() {
 		return test;
@@ -24,12 +24,6 @@ public class IndexVO {
 		this.test = test;
 	}
 
-	public IndexVO(String locationName){
-		this.locationName = locationName;
-		Location location = getLocation(locationName);
-		this.imgStr = findProductImgsByLocation(location);
-		this.test = "Test";
-	}
 
 	public List<String> getImgStr() {
 		return imgStr;

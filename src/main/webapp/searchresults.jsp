@@ -43,12 +43,13 @@ html {
     <jsp:include page="head.jsp"></jsp:include>
     <br />
     <div class= "mainBody">
-    <s:property value="interest"/>
+    <s:property value="searchresult.test"/>
     <s:property value="searchresult.interest"/>
-        <div>
-            What's Your Interest : <input id="address" type="textbox" value=""
-                onkeydown="keySubmit()"> <input type="button" id="submitLoc"
+        <div><form action="search" method="get">
+            What's Your Interest : <input id="interest" name = "interest" type="textbox" value=""
+                    onkeydown="keySubmit()"> <input type="submit" id="submitLoc"
                 value="Search Now!" onclick="codeAddress()">
+                </form>
         </div>
         <!----------------------------------------------- first item ------------------------------------------>
         <div>

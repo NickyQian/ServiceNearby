@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,7 @@
 </head>
 <body>
     <jsp:include page="head.jsp"></jsp:include>
+    <s:property value="detail.test" />
     <div class = "mainBody">
         <div style = "background-color: whiteSmoke">
             <table>
@@ -137,7 +139,7 @@
                     No questions or answers have been posted about this item.
                 </div>
                 <div>
-                    <a href="http://contact.ebay.com/ws/eBayISAPI.dll?ShowSellerFAQ&amp;iid=271110393721&amp;requested=thechocolateshoppe121&amp;redirect=0&amp;frm=284&amp;rt=nc&amp;_trksid=p2047675.l1499&amp;ssPageName=PageSellerM2MFAQ_VI">Ask a question</a>
+                    <a href="javascript:void(0)">Ask a question</a>
                 </div>
             </div>
     </div>

@@ -64,6 +64,7 @@ public class SearchProductAction extends  ActionSupport  {
 		}
 		
 		searchresult = new SearchResultVO(interest,location);
+		searchresult.setTest("test");
 		this.setSearchresult(searchresult);
 		return SUCCESS;
 	}

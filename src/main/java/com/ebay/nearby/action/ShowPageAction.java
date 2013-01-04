@@ -17,18 +17,28 @@ public class ShowPageAction extends ActionSupport {
 	private HttpServletResponse response = ServletActionContext.getResponse();
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	private String locationName;
-	private IndexVO indexvo;
+	private IndexVO indexvo = new IndexVO();
 	
 	public String execute(){
 		Location location = null;
 		HttpSession session = request.getSession();
-		
 		if(locationName!=null&&!locationName.equals("")){
 			location = IndexVO.getLocation(locationName);
 			session.setAttribute("location", location);
-			Cookie cookie = new Cookie("location", locationName);
-			cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
-			response.addCookie(cookie);
+			
+			Cookie[] cookies = request.getCookies();
+			int i = 0;
+			for(;i < cookies.length; i++) {
+				if(cookies[i].getName().equals("location")) {
+					cookies[i].setValue(locationName);
+					break;
+				}
+			}
+			if(i == cookies.length) {
+				Cookie cookie = new Cookie("location", locationName);
+				cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
+				response.addCookie(cookie);
+			}	
 		}
 		
 		location = (Location) session.getAttribute("location");
@@ -54,9 +64,10 @@ public class ShowPageAction extends ActionSupport {
 				response.addCookie(cookie);
 			}
 		}
-		
-		indexvo = new IndexVO(locationName);
+		indexvo.setImgStr(IndexVO.findProductImgsByLocation(location));
+		indexvo.setLocationName(locationName);
 		indexvo.setTest(locationName);
+		
 		return SUCCESS;
 	}
 	
