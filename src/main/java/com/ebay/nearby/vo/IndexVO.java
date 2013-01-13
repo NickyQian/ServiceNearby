@@ -11,7 +11,7 @@ import com.ebay.nearby.database.service.imp.ProductDaoImp;
 import com.ebay.nearby.util.Geo;
 
 public class IndexVO {
-	private List<String> imgStr;
+	private List<Product> products;
 	private String locationName;
 	private String test;
 	public IndexVO(){}
@@ -24,13 +24,12 @@ public class IndexVO {
 		this.test = test;
 	}
 
-
-	public List<String> getImgStr() {
-		return imgStr;
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public void setImgStr(List<String> imgStr) {
-		this.imgStr = imgStr;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public String getLocationName() {
@@ -56,14 +55,10 @@ public class IndexVO {
 //		locationService.insertLocation(location);
 		return location;
 	}
-	public static List<String> findProductImgsByLocation(Location location) {
+	public void findProductByLocation(Location location) {
 		ProductDao productService = new ProductDaoImp();
 		List<Product> products = productService.findProductsByLocation(location);
-		List<String> imgs = new ArrayList<String>();
-		for(Product p : products) {
-			imgs.add(p.getImgUrlBig());
-		}
-		return imgs;
+		this.setProducts(products);
 	}
 	
 }

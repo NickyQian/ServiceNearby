@@ -11,6 +11,7 @@
 	</action>
 	<action name="search" class="com.ebay.nearby.action.SearchProductAction" method="execute">
 		<result name="success">/searchresults.jsp</result>
+		<result name="error">/error.jsp</result>
 	</action>
 	<action name="set" class="com.ebay.nearby.action.ShowPageAction" method="execute">
 		<result name="success">/index.jsp</result>

@@ -16,14 +16,7 @@
 <title>eBay is around you!</title>
 </head>
 <body>
-    <%
-        String province = "Shanghai";
-        String city = "Shanghai";
-        String district = "Putuo";
-        String detailLoc = "ECNU";
-
-        boolean hasSetLoc = true;
-        
+    <%        
         ArrayList<String> imageNames = new ArrayList<String>();
          imageNames.add("./img/test1.jpg");
          imageNames.add("./img/test2.jpg");
@@ -34,21 +27,10 @@
          imageNames.add("./img/test7.jpg");
          imageNames.add("./img/test8.jpg");
          imageNames.add("./img/test9.jpg");
-        
-        ArrayList<String> shopNames = new ArrayList<String>();
-        shopNames.add("shop 1");
-        shopNames.add("shop 2");
-        shopNames.add("shop 3");
-        shopNames.add("shop 4");
-        shopNames.add("shop 5");
-        shopNames.add("shop 6");
-        shopNames.add("shop 7");
-        shopNames.add("shop 8");
     %>
     <jsp:include page="head.jsp"></jsp:include>
     <br>
     <div class = "mainBody">
-    <s:property value="indexvo.test"/>
         <div class = "top">
             <div><form action="search" method="get">
                 What's Your Interest : <input id="interest" name = "interest" type="textbox" value=""
@@ -56,13 +38,10 @@
                     value="Search Now!" onclick="codeAddress()">
                   </form>
             </div>
-    <!--         <div id="searchBox">
-                <form method="get" action="">
-                    <input type="text" name="location"> <input type="submit"
-                        value="搜索!">
-                </form>
-            </div> -->
             <div id="hotImages">
+            <s:iterator value="indexvo.products" id="img">
+             	<a href="showdetail?id=<s:property value='id'/>"><img class = "img" src="<s:property value='imgUrlBig'/>" alt="welcome to our shop!"></a>
+			</s:iterator> 
                 <%
                     for(int i=0; i<imageNames.size(); i++){
                 %>      
@@ -71,74 +50,19 @@
                     }
                 %>
             </div>
-
-           <div id="location">
-           <form action="set" method="post">
-           <input type="text" name = "locationName" value = "1" />
-           	<input type="submit" value = "set" />
-           </form>
-                <div id="displayLoc" style="display: none">
-                    <jsp:include page="displaylocation.jsp">
-                        <jsp:param name="province" value="<%=URLEncoder.encode(province)%>"></jsp:param>
-                        <jsp:param name="city" value="<%=URLEncoder.encode(city)%>"></jsp:param>
-                        <jsp:param name="district" value="<%=URLEncoder.encode(district)%>"></jsp:param>
-                        <jsp:param name="detailLoc"
-                            value="<%=URLEncoder.encode(detailLoc)%>"></jsp:param>
-                    </jsp:include>
-                </div>
-
-                <div id="resetLoc" style="display: none">
-                    <jsp:include page="setlocation.jsp">
-                        <jsp:param name="1" value=""></jsp:param>
-                    </jsp:include>
-                </div>
+	           <div id="location">
+		           <form action="set" method="post">
+		           <div><h2>Your Location: </h2></div>
+		           <div><input type="text" name = "locationName" size="30" value = "<s:property value='locationName'/>" /></div>
+		           	<br/>
+		           	<div>
+		           	<input type="submit" style="width:80px; margin-left:40px" value = "set" />
+		           	</div>
+		           	<br/>
+		           	<div style="background-color: whiteSmoke;padding:10px" ><strong>Input your location <br><br>to find the products around you!</strong></div>      	
+		           </form>
+	           </div>
             </div>
-        </div>
-        <div id="hotLinks">
-        <%
-            for(int i=0; i<shopNames.size(); i++){
-        %>      
-                <a href="www.ebay.com"><%=shopNames.get(i) %></a>
-        <%
-            }
-        %>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        if ('<%=hasSetLoc%>') {
-            document.getElementById("displayLoc").style['display'] = 'inline';
-        } else {
-            document.getElementById("resetLoc").style['display'] = 'inline';
-        }
-    </script>
-
-    <script type="text/javascript">
-        function resetLoc() {
-            document.getElementById("resetLoc").style['display'] = 'inline';
-            document.getElementById("displayLoc").style['display'] = 'none';
-        }
-        
-        
-        function save(){
-            var prov = document.getElementById("province");
-            var provName = prov.options[prov.options.selectedIndex].text;
-            
-            var city = document.getElementById("city");
-            var cityName = city.options[city.options.selectedIndex].text;
-            
-            var dist = document.getElementById("district");
-            var distName = dist.options[dist.options.selectedIndex].text;
-            
-            var deta = document.getElementById("detail").value;
-            document.getElementById("resetLoc").style['display'] = 'none';
-            document.getElementById("displayLoc").style['display'] = 'inline';
-            
-            document.getElementById("provLabel").innerText = provName;
-            document.getElementById("cityLabel").innerText = cityName;
-            document.getElementById("distLabel").innerText = distName;
-            document.getElementById("detaLabel").innerText = deta;
-        }
-    </script>
+       </div>
 </body>
 </html>

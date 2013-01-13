@@ -2,6 +2,7 @@ package com.ebay.nearby.database.entity;
 
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -75,6 +76,8 @@ public class Product {
 	public void setSeller(Seller seller) {
 		this.seller = seller;
 	}
+	
+	@Column(length = 16777216)
 	public String getDetail() {
 		return detail;
 	}

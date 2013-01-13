@@ -2,6 +2,7 @@ package com.ebay.nearby.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.URL;
@@ -21,6 +22,7 @@ public class Geo {
 			throws IOException {
 		address = URLEncoder.encode(address, "UTF-8");
 		BufferedReader in = null;
+		InputStream input = null;
 		Double[] result = new Double[2];
 		if (address == null || address.isEmpty()) {
 			return null;
@@ -28,11 +30,11 @@ public class Geo {
 		try {
 			URL url = new URL(urlStr + address + param);
 			URLConnection connection = url.openConnection();
-			// connection.setRequestProperty("accept", "*/*");
-			// connection.setRequestProperty("connection", "Keep-Alive");
-
+			connection.setRequestProperty("accept", "*/*");
+			connection.setRequestProperty("connection", "Keep-Alive");
+			input = connection.getInputStream();
 			in = new BufferedReader(new InputStreamReader(
-					connection.getInputStream(),"utf-8"));
+					input,"utf-8"));
 			String line = null;
 			String response = "";
 			while ((line = in.readLine()) != null) {
@@ -54,6 +56,10 @@ public class Geo {
 				if (in != null) {
 					in.close();
 				}
+				if (input != null) {
+					input.close();
+				}
+				
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}

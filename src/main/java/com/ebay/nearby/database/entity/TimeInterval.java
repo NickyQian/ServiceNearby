@@ -13,6 +13,12 @@ public class TimeInterval {
 	private int quantity1;
 	private int quantity2;
 	private int quantity3;
+	public TimeInterval(){};
+	public TimeInterval(int a, int b, int c){
+		this.quantity1 = a;
+		this.quantity2 = b;
+		this.quantity3 = c;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

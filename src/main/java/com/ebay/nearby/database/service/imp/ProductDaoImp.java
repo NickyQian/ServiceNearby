@@ -19,7 +19,7 @@ import com.ebay.nearby.util.Bound;
 import com.ebay.nearby.util.Geo;
 
 public class ProductDaoImp implements ProductDao {
-	private final int distance = 3000; 
+	private final int distance = 8000; 
 	
 	public Product findProductById(int productId) {
 		// TODO Auto-generated method stub
@@ -66,6 +66,8 @@ public class ProductDaoImp implements ProductDao {
 		query.setString("latN", bound.getLatN()+"");
 		query.setString("lagW", bound.getLagW()+"");
 		query.setString("lagE", bound.getLagE()+"");
+		query.setFirstResult(1); 
+		query.setMaxResults(9); 
 		List<Product> list = query.list();
 		List<Product> results = new ArrayList<Product>();
 		for(Product p : list) {
@@ -93,6 +95,8 @@ public class ProductDaoImp implements ProductDao {
 				"and p.title like :title " +
 				"and p.detail like :detail";
 		Query query=session.createQuery(hql);
+		query.setFirstResult(1); 
+		query.setMaxResults(5); 
 		query.setString("latS", bound.getLatS()+"");
 		query.setString("latN", bound.getLatN()+"");
 		query.setString("lagW", bound.getLagW()+"");

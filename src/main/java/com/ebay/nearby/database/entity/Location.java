@@ -13,6 +13,12 @@ public class Location {
 	private String name;
 	private double latitude;  //latitude 纬度
 	private double longitude;  //longitude 经度
+	public Location(){};
+	public Location(String name, double latitude, double longitude) {
+		this.name = name;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

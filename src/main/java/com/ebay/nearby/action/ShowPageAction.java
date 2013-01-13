@@ -63,8 +63,10 @@ public class ShowPageAction extends ActionSupport {
 				cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
 				response.addCookie(cookie);
 			}
+		} else {
+			locationName = location.getName();
 		}
-		indexvo.setImgStr(IndexVO.findProductImgsByLocation(location));
+		indexvo.findProductByLocation(location);
 		indexvo.setLocationName(locationName);
 		indexvo.setTest(locationName);
 		
