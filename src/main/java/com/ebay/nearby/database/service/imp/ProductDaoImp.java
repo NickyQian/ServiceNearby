@@ -96,7 +96,7 @@ public class ProductDaoImp implements ProductDao {
 				"and p.detail like :detail";
 		Query query=session.createQuery(hql);
 		query.setFirstResult(1); 
-		query.setMaxResults(5); 
+		query.setMaxResults(6); 
 		query.setString("latS", bound.getLatS()+"");
 		query.setString("latN", bound.getLatN()+"");
 		query.setString("lagW", bound.getLagW()+"");

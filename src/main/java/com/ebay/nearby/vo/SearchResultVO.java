@@ -35,6 +35,14 @@ public class SearchResultVO {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+	
+	public List<Product> getProductsBelow() {
+		return productsBelow;
+	}
+
+	public void setProductsBelow(List<Product> productsBelow) {
+		this.productsBelow = productsBelow;
+	}
 
 	public String getInterest() {
 		return interest;
@@ -46,12 +54,14 @@ public class SearchResultVO {
 
 	public void findProudcts(String interest, Location location) {
 		ProductDao productService = new ProductDaoImp();
-		List<Product> proudcts = productService.findProductsByKeyWords(interest, location);
-		for(int i = 0;i<2;i++){
-			this.products.add(proudcts.get(i));
-		}
-		for(int i=2;i<proudcts.size();i++){
-			this.productsBelow.add(proudcts.get(i));
+		List<Product> proudctResult = productService.findProductsByKeyWords(interest, location);
+		if (proudctResult != null && proudctResult.size()>3){
+			for(int i = 0;i<2;i++){
+				this.products.add(proudctResult.get(i));
+			}
+			for(int i=2;i<proudctResult.size();i++){
+				this.productsBelow.add(proudctResult.get(i));
+			}
 		}
 	}
 }

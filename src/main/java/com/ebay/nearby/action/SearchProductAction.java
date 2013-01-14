@@ -67,6 +67,7 @@ public class SearchProductAction extends  ActionSupport  {
 		if(searchresult.getProducts().size() == 0){
 			return ERROR;
 		}
+		
 		searchresult.setTest("test");
 		this.setSearchresult(searchresult);
 		return SUCCESS;

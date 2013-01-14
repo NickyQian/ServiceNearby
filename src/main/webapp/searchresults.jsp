@@ -20,6 +20,10 @@ html {
     height: 100%
 }
 
+a {
+cursor：pointer;
+}
+
 .item {
     background-color: whiteSmoke;
     margin-top: 5px;
@@ -50,6 +54,44 @@ html {
                 </form>
         </div>
         <!----------------------------------------------- first item ------------------------------------------>
+        <s:iterator value="searchresult.products" status="st">
+           	<div>
+            <table class = "item1 item">
+                <tbody>
+                    <tr>
+                        <td style = "width:25%">
+                            <a href = "showdetail?id=<s:property value='id'/>">
+                           <img src="<s:property value='imgUrl'/>" class="img" alt="<s:property value='title'/>">
+                            </a>
+                        </td>
+                        <td style = "width:55%">
+                            <div>
+                                <a href="showdetail?id=<s:property value='id'/>" title="<s:property value='title'/>" itemprop="name"> <s:property value="#st.index+1"/>、<s:property value='title'/></a>
+                            </div>
+                            <div style = "display:none">
+                            <div id="latitude<s:property value="#L.index+1"/>"> <s:property value="location.latitude"/></div>
+                            <div id="longitude<s:property value="#L.index+1"/>"> <s:property value="location.longitude"/></div>
+                            </div>
+                            <div>
+                                <div></div>
+                                <div style = "margin:10px;">Location: <s:property value='location.name'/></div>
+                                <div></div>
+                            </div>                               
+                        </td>
+                        <td style = "width:10%">
+                            Top Seller : <s:property value='seller.isTopSeller	'/>
+                        </td>
+                        <td style = "width:5%">
+                            <div><s:property value='price'/></div>
+                        </td>
+                        <td style = "width:10%">
+                            <b><a href="showdetail?id=<s:property value='id'/>">Buy It Now!</a></b>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		</s:iterator>
         <div>
             <table class = "item1 item">
                 <tbody>
@@ -122,6 +164,25 @@ html {
         <div style="width:30%;height:70%;float:right;margin-right:-45px">
             <table>
                 <tbody>
+                 <s:iterator value="searchresult.productsBelow" >
+                	 <tr>
+                        <td align="center">
+                            <div class = "item" style="width:263px;">
+                                <a>
+                                    <div style="vertical-align: middle;">
+                                    <img src="<s:property value='imgUrl'/>" alt="<s:property value='title'/>" style="vertical-align: middle;width:140px;height:80px">
+                                    </div>
+                                    <div>
+                                    	<a href = "showdetail?id=<s:property value='id'/>"><s:property value='title'/></a>
+                                    </div>
+                                </a>
+                                <div>
+                                	<s:property value='price'/>
+                                </div> 
+                            </div>
+                        </td>
+                    </tr>
+                 </s:iterator>
                     <tr> 
                         <td align="center">
                             <div class = "item">
@@ -184,6 +245,6 @@ html {
                     </tr>
                 </tbody>
             </table>
-        </div>  
+        </div>
 </body>
 </html>
