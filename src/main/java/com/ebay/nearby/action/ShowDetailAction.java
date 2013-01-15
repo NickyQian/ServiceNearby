@@ -28,7 +28,6 @@ public class ShowDetailAction extends ActionSupport {
 
 	public String execute() {
 		detail = new DetailVO(id);
-		detail.setTest("test");
 		return SUCCESS;
 	}
 }

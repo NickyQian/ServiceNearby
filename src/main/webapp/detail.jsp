@@ -29,16 +29,16 @@
             <table>
                 <tr>
                     <td>
-                        <div><img class = "img" src = "http://thumbs2.ebaystatic.com/d/l225/m/myT6iRxOjxXFAASRLyfvX1Q.jpg" /></div>
+                        <div><img class = "img" src = "<s:property value='detail.titleImg' />" /></div>
                     </td>
                     <td>
                         <table style = "margin-left:20px;">
                             <tr>
                                 <td>
-                                    Price:$215
+                                   Price: <s:property value="detail.price" />
                                 </td>
                                 <td>
-                                    Avalible Date : 2012-11-10 ~ 2012-12-20
+                                    Avalible Date : <s:property value="detail.avalibleDateStart"/> ~ <s:property value="detail.avalibleDateEnd"/>
                                 </td>
                             </tr>
                             <tr>
@@ -47,20 +47,20 @@
                                     Avalible Time:
                                 </td>
                             </tr>
-                            <tr style = "text-align:center">
+                            <tr style = "text-align:center" id = "time">
                                 <td>10:00 - 12:00</td>
                                 <td>12:00 - 17:00</td>
                                 <td>17:00 - 20:00</td>
                             </tr>
                             <tr>
                                 <td style = "width:33%">
-                                    <input class = "btn" type="submit" value="Avalible : 2" title="" onclick="javascript:return false;">
+                                    <input class = "btn" type="button" value="Avalible : <s:property value="detail.quantity1"/>" title="" >
                                 </td>
                                 <td style = "width:33%">
-                                    <input class = "btn" type="submit" value="Avalible : 3" title="" onclick="javascript:return false;">
+                                    <input class = "btn" type="button" value="Avalible : <s:property value="detail.quantity2"/>" title="" >
                                 </td>
                                 <td style = "width:33%">
-                                    <input class = "btn" type="submit" value="Avalible : 10" title="" onclick="javascript:return false;">
+                                    <input class = "btn" type="button" value="Avalible : <s:property value="detail.quantity3"/>" title="" >
                                 </td>
                              </tr>
                         </table>
@@ -78,20 +78,12 @@
                                         <!-- ITEM CONDITION  -->
                                                 <!-- If Attribute is having hidden text / link   -->            
                                                     <div style = "margin:10px">
-                                                        New: A brand-new, unused, unopened, undamaged item in its original packaging (where packaging is <span>
-                                                                applicable). Packaging should be the same as what is found in a retail store, unless the item is handmade or was packaged by the manufacturer in non-retail packaging, such as an unprinted box or plastic bag. See the seller's listing for full details.<a href="http://pages.ebay.com/help/sell/contextual/condition_11.html" target="_blank" class="infoLink u-nowrap">
-                                                                        See all condition definitions<b class="g-hdn">- opens in a new window or tab</b></a>
-                                                                </span>
-                                                            
-                                                            <!-- TODO: remove hardcoded ID -->
-                                                            <span id="readFull" class="infoLink u-nowrap">
-                                                                ... <a href="javascript:;">Read more<b class="g-hdn">about the condition</b></a>    
-                                                            </span>
+                                                        <s:property value="detail.title"/>
                                                         </div>
                                                         </td>
                                 <td>Brand: </td>                                        
                                     <td width="50.0%">
-                                        Wise Foods</td>
+                                        <s:property value="detail.productBrand"/></td>
                             </tr>
                             <tr>
                                 <td>Packaging: </td>
@@ -106,7 +98,7 @@
                                 <td>Model: </td>
                                 <td width="50.0%"><span style = "margin:10px;">W01-160</span></td>
                                 <td>Type: </td>
-                                <td width="50.0%"><span style = "margin:10px;">Entree Only</span></td>
+                                <td width="50.0%"><span style = "margin:10px;"><s:property value="detail.type"/></span></td>
                             </tr>
                             <tr>
                                 <td>UPC: </td>
@@ -117,15 +109,16 @@
             </div>
             <div style = "position:relative;margin-top:5px;background-color: whiteSmoke;height:80%;">
                 <div style = "width:48%;">
-                    <div style = "text-align:center"><img class = "imgBig" src = "./img/test1.jpg" />
+                    <div style = "text-align:center"><img class = "imgBig" src = "<s:property value="detail.detailImg" />" />
                     </div>
                     <div>
-                            <font color="#fb0034" size="4" face="Comic Sans MS">Our peanut clusters are made daily in our commercial kitchen. We use large premium Virginia peanuts and our finest gourmet chocolate. This is a 1 pound listing. Makes&nbsp;the perfect gift ! Shipped US Priority mail for $6.95.
+                            <font color="#fb0034" size="4" face="Comic Sans MS">
+                            <s:property value="detail.detail" />
                             </font>
                     </div>
                 </div>
                 <div style = "height:400px;width:48%;position:absolute;left:49%;top:5px">
-                    <div>Location: Zhangjiang hi-tech Park, Shanghai</div>
+                    <div>Location: <s:property value="detail.locationName" /></div>
                     <div id="map_canvas" style="width: 100%;height:100%;margin-top: 5px;">
                     </div>
                 </div>
@@ -155,7 +148,7 @@
                             <div>time :</div>
                         </td>   
                         <td>
-                            <div>10:00 am - 12:00 am</div>
+                            <div id = "interval"></div>
                         </td>
                     </tr>
                     <tr>
@@ -169,9 +162,9 @@
                 </tbody>
             </table>
         </div>
-        <div> 
+        <div>
             <span class="qtyTxt"><span id="qtySubTxt">
-                Limited quantity available / 92 sold</span>
+                Limited quantity available / <s:property value="detail.soldQuantities"/> sold</span>
         </div>
     </div>
 </body>

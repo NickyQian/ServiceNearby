@@ -25,6 +25,11 @@ public class Product {
 	private Seller seller;
 	private String detail;
 	private TimeInterval interval;
+	private String productBrand;
+	private String type;
+	private String avalibleDateStart;
+	private String avalibleDateEnd;
+	private int soldQuantities;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -93,5 +98,37 @@ public class Product {
 	public void setInterval(TimeInterval interval) {
 		this.interval = interval;
 	}
+	public String getProductBrand() {
+		return productBrand;
+	}
+	public void setProductBrand(String productBrand) {
+		this.productBrand = productBrand;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getAvalibleDateStart() {
+		return avalibleDateStart;
+	}
+	public void setAvalibleDateStart(String avalibleDateStart) {
+		this.avalibleDateStart = avalibleDateStart;
+	}
+	public String getAvalibleDateEnd() {
+		return avalibleDateEnd;
+	}
+	public void setAvalibleDateEnd(String avalibleDateEnd) {
+		this.avalibleDateEnd = avalibleDateEnd;
+	}
+	public int getSoldQuantities() {
+		return soldQuantities;
+	}
+	public void setSoldQuantities(int soldQuantities) {
+		this.soldQuantities = soldQuantities;
+	}
+	
+	
 
 }

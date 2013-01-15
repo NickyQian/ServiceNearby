@@ -28,6 +28,11 @@ public class MockData {
 		String detail = "Green Coffee Bean Extract is a weight loss and diet ingredient in hundreds of popular supplements. This ingredient recently saw a surge in popularity due to a segment on the popular Dr. Oz show. Green Coffee Bean Extract has anti-oxidant properties and was shown to aid with weight loss in a study performed by University of Scranton.";
 		String title = "Pure Green Coffee Bean Extract 50% Chlorogenic Acid 800mg with GCA (2-Pack)";
 		String price = "$11";
+		String productBrand = "Ritz";
+		String type = "Food";
+		String avalibleDateStart = "2013-01-10";
+		String avalibleDateEnd = "2013-06-01";
+		int soldQuantities = 57;
 		
 		for(int i = 0; i < 5; i++){
 			Location location = new Location(name,latitude-0.000001*i, longitude+0.000001*i);
@@ -46,6 +51,11 @@ public class MockData {
 			product.setLocation(location);
 			product.setSeller(seller);
 			product.setInterval(timeInterval);
+			product.setProductBrand(productBrand);
+			product.setType(type);
+			product.setAvalibleDateStart(avalibleDateStart);
+			product.setAvalibleDateEnd(avalibleDateEnd);
+			product.setSoldQuantities(soldQuantities);
 			
 			productService.insertProduct(product);
 		}

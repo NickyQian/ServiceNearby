@@ -23,7 +23,6 @@ public class DetailVO {
 	private String avalibleDateStart;
 	private String avalibleDateEnd;
 	private int soldQuantities;
-	private String test;
 	
 	public DetailVO(int id) {
 		Product product = findProductById(id);
@@ -41,6 +40,11 @@ public class DetailVO {
 			this.locationName = product.getLocation().getName();
 			this.productLatitude = product.getLocation().getLatitude();
 			this.productLongitude = product.getLocation().getLongitude();
+			this.productBrand = product.getProductBrand();
+			this.type = product.getType();
+			this.avalibleDateStart = product.getAvalibleDateStart();
+			this.avalibleDateEnd = product.getAvalibleDateEnd();
+			this.soldQuantities = product.getSoldQuantities();
 		}
 		
 	}
@@ -51,12 +55,149 @@ public class DetailVO {
 		return product;
 	}
 
-	public String getTest() {
-		return test;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTest(String test) {
-		this.test = test;
+	public void setTitle(String title) {
+		this.title = title;
 	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getTitleImg() {
+		return titleImg;
+	}
+
+	public void setTitleImg(String titleImg) {
+		this.titleImg = titleImg;
+	}
+
+	public String getDetailImg() {
+		return detailImg;
+	}
+
+	public void setDetailImg(String detailImg) {
+		this.detailImg = detailImg;
+	}
+
+	public int getQuantity1() {
+		return quantity1;
+	}
+
+	public void setQuantity1(int quantity1) {
+		this.quantity1 = quantity1;
+	}
+
+	public int getQuantity2() {
+		return quantity2;
+	}
+
+	public void setQuantity2(int quantity2) {
+		this.quantity2 = quantity2;
+	}
+
+	public int getQuantity3() {
+		return quantity3;
+	}
+
+	public void setQuantity3(int quantity3) {
+		this.quantity3 = quantity3;
+	}
+
+	public String getSellerName() {
+		return sellerName;
+	}
+
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
+
+	public String getIsTopSeller() {
+		return isTopSeller;
+	}
+
+	public void setIsTopSeller(String isTopSeller) {
+		this.isTopSeller = isTopSeller;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public String getLocationName() {
+		return locationName;
+	}
+
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+
+	public double getProductLatitude() {
+		return productLatitude;
+	}
+
+	public void setProductLatitude(double productLatitude) {
+		this.productLatitude = productLatitude;
+	}
+
+	public double getProductLongitude() {
+		return productLongitude;
+	}
+
+	public void setProductLongitude(double productLongitude) {
+		this.productLongitude = productLongitude;
+	}
+
+	public String getProductBrand() {
+		return productBrand;
+	}
+
+	public void setProductBrand(String productBrand) {
+		this.productBrand = productBrand;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getAvalibleDateStart() {
+		return avalibleDateStart;
+	}
+
+	public void setAvalibleDateStart(String avalibleDateStart) {
+		this.avalibleDateStart = avalibleDateStart;
+	}
+
+	public String getAvalibleDateEnd() {
+		return avalibleDateEnd;
+	}
+
+	public void setAvalibleDateEnd(String avalibleDateEnd) {
+		this.avalibleDateEnd = avalibleDateEnd;
+	}
+
+	public int getSoldQuantities() {
+		return soldQuantities;
+	}
+
+	public void setSoldQuantities(int soldQuantities) {
+		this.soldQuantities = soldQuantities;
+	}
+	
 	
 }

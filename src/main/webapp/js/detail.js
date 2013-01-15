@@ -51,17 +51,27 @@ function initialize() {
 
 $(document).ready(function() {
     initialize();
-    $(".btn").click(showDialog);
+    
+    $('.btn').each(function(i, e) {
+    	  $(e).click({idx: i}, function(e) {
+    		  showDialog(i);
+    	  });
+    	});
+    
+//    $(".btn").click(showDialog);
+//    $(".btn").click(showDialog);
 });
 
-function showDialog() {
+function showDialog(index) {
+	time = $("#time").children().eq(index).text();
+	$("#interval").text(time);
     $(".buyBox").dialog({
         modal: true,
         width:500,
         height:250,
         title:'Buy It Now',
         buttons:{
-            'BUY':function(){alert("OK")}
+            'BUY':function(){alert("OK");}
         }
     });
 }
