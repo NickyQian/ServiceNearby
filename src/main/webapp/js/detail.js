@@ -53,7 +53,7 @@ $(document).ready(function() {
     initialize();
     
     $('.btn').each(function(i, e) {
-    	  $(e).click({idx: i}, function(e) {
+    	  $(e).click(function() {
     		  showDialog(i);
     	  });
     	});

@@ -6,13 +6,13 @@
 <head>
     <title>search results</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="http://gh.ebaystatic.com/header/css/min?combo=2&amp;factor=CLASSIC&amp;rvr=72&amp;h=17735">
-<link href="http://ir.ebaystatic.com/z/yf/0rygboh5l25mpp0xqptnckjup.css?dataUri=true" type="text/css" rel="stylesheet">
-<link href="http://ir.ebaystatic.com/z/mp/vtepmlq5di5djnuwo1khbcq3f.css?dataUri=true" type="text/css" rel="stylesheet">
+<link href="./css/head1.css" type="text/css" rel="stylesheet">
+<link href="./css/head2.css" type="text/css" rel="stylesheet">
+<link href="./css/head3.css" type="text/css" rel="stylesheet">
 <script type="text/javascript"
     src="https://maps.google.com/maps/api/js?libraries=geometry&sensor=false">
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/location.js"></script>
 <link href="./css/common.css" type="text/css" rel="stylesheet">
 <style type="text/css">

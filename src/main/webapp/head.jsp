@@ -3,10 +3,10 @@
             <tbody>
                 <tr>
                     <td id="gh-l">
-                        <a href="http://www.ebay.com" _sp="m570.l2586" id="gh-la">eBay<img alt="" src="http://p.ebaystatic.com/aw/pics/s.gif" id="gh-logo" border="0"></a>
+                        <a href="http://www.ebay.com" _sp="m570.l2586" id="gh-la">eBay<img alt="" src="./img/ebay.gif" id="gh-logo" border="0"></a>
                     </td>
                     <td id="gh-d" style="visibility: visible; ">
-                        <a href="http://deals.ebay.com/black-friday-cyber-monday" _sp="m570.l2611" class="gh-his" id="gh-holidayS"><img alt="" src="http://pics.ebaystatic.com/aw/mops/2012_doodles/Holiday/Small/Img02_Week_4_Elf_BF_Deals_158x59.jpg" title="Shop Deals" border="0"></a>
+                        <a href="http://deals.ebay.com/black-friday-cyber-monday" _sp="m570.l2611" class="gh-his" id="gh-holidayS"><img alt="" src="./img/head.jpg" title="Shop Deals" border="0"></a>
                     </td>
                     <td id="gh-u">
                         <span id="gh-ug">Welcome! <a _sp="m570.l1524" class="gh-a" href="https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;ru=http%3A%2F%2Fwww.ebay.com%2Fsch%2Fi.html%3F_trksid%3Dp2050601.m570.l1313%26_nkw%3Diphone%26_sacat%3D0%26_from%3DR40" rel="nofollow">Sign in</a> or <a _sp="m570.l2621" class="gh-a" href="https://scgi.ebay.com/ws/eBayISAPI.dll?RegisterEnterInfo&amp;ru=http%3A%2F%2Fwww.ebay.com%2Fsch%2Fi.html%3F_trksid%3Dp2050601.m570.l1313%26_nkw%3Diphone%26_sacat%3D0%26_from%3DR40" id="registerLink" rel="nofollow">register</a></span>

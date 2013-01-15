@@ -9,14 +9,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="css/index.css" />
-<link rel="stylesheet" type="text/css" href="http://gh.ebaystatic.com/header/css/min?combo=2&amp;factor=CLASSIC&amp;rvr=72&amp;h=17735">
-<link href="http://ir.ebaystatic.com/z/yf/0rygboh5l25mpp0xqptnckjup.css?dataUri=true" type="text/css" rel="stylesheet">
-<link href="http://ir.ebaystatic.com/z/mp/vtepmlq5di5djnuwo1khbcq3f.css?dataUri=true" type="text/css" rel="stylesheet">
+<link href="./css/head1.css" type="text/css" rel="stylesheet">
+<link href="./css/head2.css" type="text/css" rel="stylesheet">
+<link href="./css/head3.css" type="text/css" rel="stylesheet">
 <link href="./css/common.css" type="text/css" rel="stylesheet">
 <title>eBay is around you!</title>
 </head>
 <body>
-    <%        
+    <%
         ArrayList<String> imageNames = new ArrayList<String>();
          imageNames.add("./img/test1.jpg");
          imageNames.add("./img/test2.jpg");
