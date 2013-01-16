@@ -59,9 +59,9 @@ public class SearchProductAction extends  ActionSupport  {
 			}
 			if(i == cookies.length) {// set default location session/cookie
 				// session and cookie
-				location = IndexVO.getLocation("zhangjianggaoke");
+				location = IndexVO.getLocation("zhangjiang hi-tech park");
 				session.setAttribute("location",location);
-				Cookie cookie = new Cookie("location", "zhangjianggaoke");
+				Cookie cookie = new Cookie("location", "zhangjiang hi-tech park");
 				cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
 				response.addCookie(cookie);
 			}

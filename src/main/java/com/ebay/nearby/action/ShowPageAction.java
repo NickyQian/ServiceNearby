@@ -31,6 +31,7 @@ public class ShowPageAction extends ActionSupport {
 			for(;i < cookies.length; i++) {
 				if(cookies[i].getName().equals("location")) {
 					cookies[i].setValue(locationName);
+					response.addCookie(cookies[i]);
 					break;
 				}
 			}
@@ -39,32 +40,42 @@ public class ShowPageAction extends ActionSupport {
 				cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
 				response.addCookie(cookie);
 			}	
-		}
+		} else {
 		
 		location = (Location) session.getAttribute("location");
-		if(location==null){
-			Cookie[] cookies = request.getCookies();
-			location = new Location();
-			int i = 0;
-			for(;i < cookies.length; i++) {
-				if(cookies[i].getName().equals("location")) {
-					locationName = cookies[i].getValue();
+			if(location==null){
+				Cookie[] cookies = request.getCookies();
+				location = new Location();
+				int i = 0;
+				if(cookies!=null){
+					for(;i < cookies.length; i++) {
+						if(cookies[i].getName().equals("location")) {
+							locationName = cookies[i].getValue();
+							location = IndexVO.getLocation(locationName);
+							session.setAttribute("location", location);
+							break;
+						}
+					}
+					if(i == cookies.length) {// set default location session/cookie
+						// session and cookie
+						locationName = "zhangjiang hi-tech park";
+						location = IndexVO.getLocation(locationName);
+						session.setAttribute("location", location);
+						Cookie cookie = new Cookie("location", "zhangjiang hi-tech park");
+						cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
+						response.addCookie(cookie);
+					}
+				} else {
+					locationName = "zhangjiang hi-tech park";
 					location = IndexVO.getLocation(locationName);
 					session.setAttribute("location", location);
-					break;
+					Cookie cookie = new Cookie("location", "zhangjiang hi-tech park");
+					cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
+					response.addCookie(cookie);
 				}
+			} else {
+				locationName = location.getName();
 			}
-			if(i == cookies.length) {// set default location session/cookie
-				// session and cookie
-				locationName = "zhangjianggaoke";
-				location = IndexVO.getLocation(locationName);
-				session.setAttribute("location", location);
-				Cookie cookie = new Cookie("location", "zhangjianggaoke");
-				cookie.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
-				response.addCookie(cookie);
-			}
-		} else {
-			locationName = location.getName();
 		}
 		indexvo.findProductByLocation(location);
 		indexvo.setLocationName(locationName);

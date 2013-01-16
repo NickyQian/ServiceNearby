@@ -23,9 +23,12 @@
 </head>
 <body>
     <jsp:include page="head.jsp"></jsp:include>
-    <s:property value="detail.test" />
     <div class = "mainBody">
         <div style = "background-color: whiteSmoke">
+        <div style="display:none">
+        <div id = "productLatitude"><s:property value='detail.productLatitude' /></div>
+        <div id = "productLongitude"><s:property value='detail.productLongitude' /></div>
+        </div>
             <table>
                 <tr>
                     <td>

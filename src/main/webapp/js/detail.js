@@ -4,7 +4,8 @@ var initialLocation;
 var marker;
 var marker1;
 function initialize() {
-    initialLocation = new google.maps.LatLng(31.230393, 121.473704);// location:Shanghai
+	
+    initialLocation = new google.maps.LatLng( 31.212254,  121.61177);// location:zhangjiang
     geocoder = new google.maps.Geocoder();
     var myOptions = {
         zoom : 15,
@@ -21,9 +22,11 @@ function initialize() {
         animation : google.maps.Animation.DROP,
         draggable : true
     });
-
+    
+    var productLatitude = $('#productLatitude').text();
+    var productLongitude = $('#productLongitude').text();
     marker1 = new google.maps.Marker({
-        position : new google.maps.LatLng(31.249554, 121.39640099999997),
+        position : new google.maps.LatLng(productLatitude, productLongitude),
         map : map,
         title : "marker1",
         animation : google.maps.Animation.DROP,

@@ -20,52 +20,52 @@ public class Geo {
 
 	public static Double[] getLatLongFromAddress(String address)
 			throws IOException {
-//		address = URLEncoder.encode(address, "UTF-8");
-//		BufferedReader in = null;
-//		InputStream input = null;
+		address = URLEncoder.encode(address, "UTF-8");
+		BufferedReader in = null;
+		InputStream input = null;
 		Double[] result = new Double[2];
-//		if (address == null || address.isEmpty()) {
-//			return null;
-//		}
-//		try {
-//			URL url = new URL(urlStr + address + param);
-//			URLConnection connection = url.openConnection();
-//			connection.setRequestProperty("accept", "*/*");
-//			connection.setRequestProperty("connection", "Keep-Alive");
-//			input = connection.getInputStream();
-//			in = new BufferedReader(new InputStreamReader(
-//					input,"utf-8"));
-//			String line = null;
-//			String response = "";
-//			while ((line = in.readLine()) != null) {
-//				response += line + "\n";
-//			}
-//			JSONObject responseJson = JSONObject.fromObject(response);
-//			JSONArray placeMarkArray = JSONArray.fromObject(responseJson
-//					.get("Placemark"));
-//			// get the first mark if have two more same marks
-//			JSONObject placeMark = placeMarkArray.getJSONObject(0);
-//			JSONObject point = (JSONObject) placeMark.get("Point");
-//			JSONArray coordinates = (JSONArray) point.get("coordinates");
-//			result[0] = (Double) coordinates.get(1); // latitude
-//			result[1] = (Double) coordinates.get(0); // longitude
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				if (in != null) {
-//					in.close();
-//				}
-//				if (input != null) {
-//					input.close();
-//				}
-//				
-//			} catch (IOException ex) {
-//				ex.printStackTrace();
-//			}
-//		}
-		result[0] = 31.2122530;
-		result[1] = 121.6117730;
+		if (address == null || address.isEmpty()) {
+			return null;
+		}
+		try {
+			URL url = new URL(urlStr + address + param);
+			URLConnection connection = url.openConnection();
+			connection.setRequestProperty("accept", "*/*");
+			connection.setRequestProperty("connection", "Keep-Alive");
+			input = connection.getInputStream();
+			in = new BufferedReader(new InputStreamReader(
+					input,"utf-8"));
+			String line = null;
+			String response = "";
+			while ((line = in.readLine()) != null) {
+				response += line + "\n";
+			}
+			JSONObject responseJson = JSONObject.fromObject(response);
+			JSONArray placeMarkArray = JSONArray.fromObject(responseJson
+					.get("Placemark"));
+			// get the first mark if have two more same marks
+			JSONObject placeMark = placeMarkArray.getJSONObject(0);
+			JSONObject point = (JSONObject) placeMark.get("Point");
+			JSONArray coordinates = (JSONArray) point.get("coordinates");
+			result[0] = (Double) coordinates.get(1); // latitude
+			result[1] = (Double) coordinates.get(0); // longitude
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+				if (input != null) {
+					input.close();
+				}
+				
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+//		result[0] = 31.2122530;
+//		result[1] = 121.6117730;
 		return result;
 	}
 
