@@ -1,7 +1,5 @@
 package com.ebay.nearby.database;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import com.ebay.nearby.database.dao.AvaliableTimeDao;

@@ -55,12 +55,14 @@ public class SearchResultVO {
 	public void findProudcts(String interest, Location location) {
 		ProductDao productService = new ProductDaoImp();
 		List<Product> proudctResult = productService.findProductsByKeyWords(interest, location);
-		if (proudctResult != null && proudctResult.size()>3){
-			for(int i = 0;i<2;i++){
+		if (proudctResult != null && proudctResult.size()>0){
+			for(int i = 0;i<proudctResult.size();i++){
 				this.products.add(proudctResult.get(i));
 			}
-			for(int i=2;i<proudctResult.size();i++){
-				this.productsBelow.add(proudctResult.get(i));
+			if(productsBelow.size()>0){
+				for(int i=2;i<proudctResult.size();i++){
+					this.productsBelow.add(proudctResult.get(i));
+				}
 			}
 		}
 	}

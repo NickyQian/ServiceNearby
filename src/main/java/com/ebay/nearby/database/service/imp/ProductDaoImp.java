@@ -3,12 +3,9 @@ package com.ebay.nearby.database.service.imp;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 import com.ebay.nearby.database.dao.ProductDao;
 import com.ebay.nearby.database.entity.Location;
@@ -17,6 +14,7 @@ import com.ebay.nearby.database.entity.TimeInterval;
 import com.ebay.nearby.database.hibernate.util.HibernateUtil;
 import com.ebay.nearby.util.Bound;
 import com.ebay.nearby.util.Geo;
+
 
 public class ProductDaoImp implements ProductDao {
 	private final int distance = 8000; 
@@ -66,8 +64,8 @@ public class ProductDaoImp implements ProductDao {
 		query.setString("latN", bound.getLatN()+"");
 		query.setString("lagW", bound.getLagW()+"");
 		query.setString("lagE", bound.getLagE()+"");
-		query.setFirstResult(1); 
-		query.setMaxResults(9); 
+		query.setFirstResult(0); 
+		query.setMaxResults(8); 
 		List<Product> list = query.list();
 		List<Product> results = new ArrayList<Product>();
 		for(Product p : list) {
@@ -95,7 +93,7 @@ public class ProductDaoImp implements ProductDao {
 				"and p.title like :title " +
 				"and p.detail like :detail";
 		Query query=session.createQuery(hql);
-		query.setFirstResult(1); 
+		query.setFirstResult(0); 
 		query.setMaxResults(6); 
 		query.setString("latS", bound.getLatS()+"");
 		query.setString("latN", bound.getLatN()+"");

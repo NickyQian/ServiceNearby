@@ -12,13 +12,14 @@ import com.ebay.nearby.vo.IndexVO;
 import com.ebay.nearby.vo.SearchResultVO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SearchProductAction extends  ActionSupport  {	
+public class SearchProductAction extends  ActionSupport  {
 	private static final long serialVersionUID = 1L;
 	
 	private HttpServletResponse response = ServletActionContext.getResponse();
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	private String interest;
 	private SearchResultVO searchresult;
+	private Location location;
 	
 	public String getInterest() {
 		return interest;
@@ -34,10 +35,17 @@ public class SearchProductAction extends  ActionSupport  {
 		this.searchresult = searchresult;
 	}
 	
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	
 	public String execute() throws Exception {
 		HttpSession session = request.getSession();
 		
-		Location location = (Location) session.getAttribute("location");
+		location = (Location) session.getAttribute("location");
 		if(location==null){
 			Cookie[] cookies = request.getCookies();
 			location = new Location();
@@ -68,7 +76,7 @@ public class SearchProductAction extends  ActionSupport  {
 			return ERROR;
 		}
 		
-		searchresult.setTest("test");
+		this.setLocation(location);		
 		this.setSearchresult(searchresult);
 		return SUCCESS;
 	}

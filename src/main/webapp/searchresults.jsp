@@ -34,7 +34,7 @@ cursor：pointer;
     border-collapse: collapse;
     /*border: 1px solid;*/
     margin-top: 5px;
-    margin-bottom: 5px;     
+    margin-bottom: 5px;
 }
 
 .img {
@@ -44,6 +44,10 @@ cursor：pointer;
 </style>
 </head>
 <body>
+ 	<div style = "display:none">
+	    <div id="latitudeInitail"> <s:property value="location.latitude"/></div>
+	    <div id="longitudeInitail"> <s:property value="location.longitude"/></div>
+    </div>
     <jsp:include page="head.jsp"></jsp:include>
     <br />
     <div class= "mainBody">
@@ -56,7 +60,7 @@ cursor：pointer;
         <!----------------------------------------------- first item ------------------------------------------>
         <s:iterator value="searchresult.products" status="st">
            	<div>
-            <table class = "item1 item">
+            <table class = "item<s:property value="#st.index+1"/> item">
                 <tbody>
                     <tr>
                         <td style = "width:25%">
@@ -66,11 +70,11 @@ cursor：pointer;
                         </td>
                         <td style = "width:55%">
                             <div>
-                                <a href="showdetail?id=<s:property value='id'/>" title="<s:property value='title'/>" itemprop="name"> <s:property value="#st.index+1"/>、<s:property value='title'/></a>
+                                <a id="title<s:property value="#st.index+1"/>" href="showdetail?id=<s:property value='id'/>" title="<s:property value='title'/>" itemprop="name"><s:property value='title'/></a>
                             </div>
                             <div style = "display:none">
-                            <div id="latitude<s:property value="#L.index+1"/>"> <s:property value="location.latitude"/></div>
-                            <div id="longitude<s:property value="#L.index+1"/>"> <s:property value="location.longitude"/></div>
+                            <div id="latitude<s:property value="#st.index+1"/>"> <s:property value="location.latitude"/></div>
+                            <div id="longitude<s:property value="#st.index+1"/>"> <s:property value="location.longitude"/></div>
                             </div>
                             <div>
                                 <div></div>
@@ -79,7 +83,7 @@ cursor：pointer;
                             </div>                               
                         </td>
                         <td style = "width:10%">
-                            Top Seller : <s:property value='seller.isTopSeller	'/>
+                            Top Seller     <!--  : <s:property value='seller.isTopSeller	'/> -->
                         </td>
                         <td style = "width:5%">
                             <div><s:property value='price'/></div>
@@ -92,70 +96,9 @@ cursor：pointer;
             </table>
         </div>
 		</s:iterator>
-        <div>
-            <table class = "item1 item">
-                <tbody>
-                    <tr>
-                        <td style = "width:25%">
-                            <a href = "#">
-                           <img src="http://thumbs2.ebaystatic.com/d/l225/m/myT6iRxOjxXFAASRLyfvX1Q.jpg" class="img" alt="5 packs Lay's Potato Chips, various flavor, 80g each bag">
-                            </a>
-                        </td>
-                        <td style = "width:55%">
-                            <div>
-                                <a href="#" title="Apple iPhone 4 - 16GB - Black (AT&amp;T) Smartphone (MC318LL/A)" itemprop="name">Apple iPhone 4 - 16GB - Black (AT&amp;T) Smartphone (MC318LL/A)</a>
-                            </div>
-                            <div>
-                                <div></div>
-                                <div style = "margin:10px;">Location: Zhangjiang hi-tech Park, Shanghai</div>
-                                <div></div>
-                            </div>                               
-                        </td>
-                        <td style = "width:10%">
-                            Top Seller
-                           <img src="http://pics.ebaystatic.com/aw/pics/s.gif" alt="The item is listed as a Top Rated Plus item">
-                        </td>
-                        <td style = "width:5%">
-                            <div>$242.50</div>
-                        </td>
-                        <td style = "width:10%">
-                            <b>Buy It Now!</b>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!----------------------------------------------- second item ------------------------------------------>
-        <div>
-            <table class = "item2 item">
-                <tbody>
-                    <tr>
-                        <td style = "width:25%">
-                            <a href="http://www.ebay.com/itm/Wise-Food-60-Srv-Entree-Emergency-Survival-Food-Bucket-Dehydrated-Freeze-Dried-/370628752799?pt=LH_DefaultDomain_0&amp;hash=item564b31f59f">
-                            <img src="http://thumbs3.ebaystatic.com/d/l225/m/mR8Ky6qBBPrwdeUQs6IfIRw.jpg" class="img" alt="FERRERO - Kinder Chocolate - 300 g = 24 pc">
-                            </a>
-                        </td>
-                        <td style = "width:55%">
-                            <div>
-                                <a href="http://www.ebay.com/itm/Wise-Food-60-Srv-Entree-Emergency-Survival-Food-Bucket-Dehydrated-Freeze-Dried-/370628752799?pt=LH_DefaultDomain_0&amp;hash=item564b31f59f" title="Wise Food 60 Srv Entree Emergency Survival Food Bucket Dehydrated Freeze Dried ">Wise Food 60 Srv Entree Emergency Survival Food Bucket Dehydrated Freeze Dried </a>
-                            </div>
-                            <div>
-                            <div style = "margin:10px;">Location: No.3663, ZhongShan North Road, PuTuo, Shanghai</div>
-                            </div>                                    
-                        </td>
-                        <td style = "width:10%">
-                            Top Seller
-                            <img src="http://pics.ebaystatic.com/aw/pics/s.gif" alt="The item is listed as a Top Rated Plus item">
-                        </td>
-                        <td style = "width:5%">
-                            <div>$119.99</div>                       
-                        </td>
-                        <td style = "width:10%">
-                            <b>Buy It Now!</b>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div>     
+        
+            
         </div>
     </div>
     <div id="map_canvas" style="width: 70%; height: 69%; margin-left: 25px;float:left;">
@@ -188,7 +131,7 @@ cursor：pointer;
                             <div class = "item">
                                 <a>
                                     <div style="vertical-align: middle;">
-                                    <img src="http://thumbs1.ebaystatic.com/m/mWc4J8aNqK5pz45pwgc8FjQ/140.jpg" alt="Wisco 560B Large Versatile Commercial Pizza Baking Oven" style="vertical-align: middle;">
+                                    <img class = "img" src="./img/cholocate.jpg" alt="Wisco 560B Large Versatile Commercial Pizza Baking Oven" style="vertical-align: middle;">
                                     </div>
                                     <div>
                                     Wisco 560B Large Versatile Commercial... 
@@ -197,9 +140,6 @@ cursor：pointer;
                                 <div>
                                 $308.95
                                 </div> 
-                                <div>
-                                <a href="http://recommendations.ebay.com/Wisco-560B-Large-Versatile-Commercial-Pizza-Baking-Oven-/MESMR?_pvtid=110308972828&amp;_category=25369&amp;_trksid=p2045573.c100034.m1843">See suggestions</a>
-                                </div>
                             </div>
                         </td>
                     </tr>
@@ -208,7 +148,7 @@ cursor：pointer;
                             <div class = "item">
                                 <a>
                                     <div style="vertical-align: middle;">
-                                    <img src="http://thumbs4.ebaystatic.com/m/mrKieaJRz7KE3LMPuwG3M9g/140.jpg" alt="Wisco 560D 16in Commercial FROZEN CRUST Pizza Oven NEW!" style="vertical-align: middle;">
+                                    <img class = "img" src="./img/lays.jpg" alt="Wisco 560D 16in Commercial FROZEN CRUST Pizza Oven NEW!" style="vertical-align: middle;">
                                     </div>
                                 <div>
                                 Wisco 560D 16in Commercial FROZEN... 
@@ -217,32 +157,9 @@ cursor：pointer;
                                 <div>
                                 $299.95
                                 </div> 
-                                <div>
-                                <a href="http://recommendations.ebay.com/Wisco-560D-16in-Commercial-FROZEN-CRUST-Pizza-Oven-NEW-/MESMR?_pvtid=110428319967&amp;_category=25369&amp;_trksid=p2045573.c100034.m1843">See suggestions</a>
-                                </div>
                             </div>
                         </td>
                     </tr> 
-                    <tr> 
-                        <td align="center">
-                            <div class = "item">
-                                <a>
-                                <div style="vertical-align: middle;">
-                                <img src="http://thumbs1.ebaystatic.com/m/mY0sECokYE3Uo-QB2U4qTzw/140.jpg" alt="Wisco 580-1 Hot Food Pizza Warmer Display Merchandiser!" style="vertical-align: middle;">
-                                </div>
-                                <div>
-                                Wisco 580-1 Hot Food Pizza Warmer Displ... 
-                                </div>
-                                </a>
-                                <div>
-                                $95
-                                </div>
-                                <div>
-                                <a href="http://recommendations.ebay.com/Wisco-580-1-Hot-Food-Pizza-Warmer-Display-Merchandiser-/MESMR?_pvtid=110308977940&amp;_category=25369&amp;_trksid=p2045573.c100034.m1843">See suggestions</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

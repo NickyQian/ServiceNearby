@@ -58,7 +58,7 @@ public class IndexVO {
 	public void findProductByLocation(Location location) {
 		ProductDao productService = new ProductDaoImp();
 		List<Product> products = productService.findProductsByLocation(location);
-		this.setProducts(products);
+ 		this.setProducts(products);
 	}
 	
 }
