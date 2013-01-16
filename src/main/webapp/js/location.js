@@ -5,7 +5,9 @@ var marker;
 var marker1;
 var marker2;
 function initialize() {
-    initialLocation = new google.maps.LatLng(31.230393, 121.4737);// location:Shanghai
+	var latitudeInitail = $('#latitudeInitail').text();
+    var longitudeInitail = $('#longitudeInitail').text()
+    initialLocation = new google.maps.LatLng(latitudeInitail, longitudeInitail);// location:Shanghai
     geocoder = new google.maps.Geocoder();
     var myOptions = {
         zoom : 13,
@@ -24,35 +26,39 @@ function initialize() {
         animation : google.maps.Animation.DROP,
         draggable : true
     });
-
+    
+    var latitude1 = $('#latitude1').text();
+    var longitude1 = $('#longitude1').text();
     marker1 = new google.maps.Marker({
-        position : new google.maps.LatLng(31.249554, 121.3964),
+        position : new google.maps.LatLng(latitude1, longitude1),
         map : map,
         title : "marker1",
         animation : google.maps.Animation.DROP,
         draggable : true
     });
 
+    var latitude2 = $('#latitude2').text();
+    var longitude2 = $('#longitude2').text();
     marker2 = new google.maps.Marker({
-        position : new google.maps.LatLng(31.201906, 121.5877),
+        position : new google.maps.LatLng(latitude2, longitude2),
         map : map,
         title : "marker2",
         animation : google.maps.Animation.DROP,
         draggable : true
     });
 
-    var contentString = "Your position: Detail Information";
+    var contentString = "Your position!";
 
     var infowindow = new google.maps.InfoWindow({
         content : contentString
     });
 
     var infowindow1 = new google.maps.InfoWindow({
-            content : "marker1: Detail"
+            content : $('#title1').text()
     });
 
     var infowindow2 = new google.maps.InfoWindow({
-        content : "marker2: Detail"
+        content : $('#title2').text()
     });
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map, marker);

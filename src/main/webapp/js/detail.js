@@ -7,7 +7,7 @@ function initialize() {
     initialLocation = new google.maps.LatLng(31.230393, 121.473704);// location:Shanghai
     geocoder = new google.maps.Geocoder();
     var myOptions = {
-        zoom : 10,
+        zoom : 15,
         center : initialLocation,
         mapTypeId : google.maps.MapTypeId.ROADMAP
     };
@@ -30,14 +30,14 @@ function initialize() {
         draggable : true
     });
 
-    var contentString = "Your position: Detail Information";
+    var contentString = "Your position!";
 
     var infowindow = new google.maps.InfoWindow({
         content : contentString
     });
 
     var infowindow1 = new google.maps.InfoWindow({
-            content : "marker1: Detail"
+            content : "I'm here!"
     });
 
     google.maps.event.addListener(marker, 'click', function() {
