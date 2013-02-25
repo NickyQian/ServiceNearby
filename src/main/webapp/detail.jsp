@@ -22,6 +22,10 @@
 <title>Product Detail</title>
 </head>
 <body>
+ 	<div style = "display:none">
+	    <div id="latitudeInitail"> <s:property value="location.latitude"/></div>
+	    <div id="longitudeInitail"> <s:property value="location.longitude"/></div>
+    </div>
     <jsp:include page="head.jsp"></jsp:include>
     <div class = "mainBody">
         <div style = "background-color: whiteSmoke">

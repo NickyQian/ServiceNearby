@@ -6,7 +6,7 @@ var marker1;
 var marker2;
 function initialize() {
 	var latitudeInitail = $('#latitudeInitail').text();
-    var longitudeInitail = $('#longitudeInitail').text()
+    var longitudeInitail = $('#longitudeInitail').text();
     initialLocation = new google.maps.LatLng(latitudeInitail, longitudeInitail);// location:Shanghai
     geocoder = new google.maps.Geocoder();
     var myOptions = {

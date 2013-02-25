@@ -4,8 +4,10 @@ var initialLocation;
 var marker;
 var marker1;
 function initialize() {
-	
-    initialLocation = new google.maps.LatLng( 31.212254,  121.61177);// location:zhangjiang
+	var latitudeInitail = $('#latitudeInitail').text();
+    var longitudeInitail = $('#longitudeInitail').text();
+    initialLocation = new google.maps.LatLng(latitudeInitail, longitudeInitail);
+    //initialLocation = new google.maps.LatLng( 31.212254,  121.61177);// location:zhangjiang
     geocoder = new google.maps.Geocoder();
     var myOptions = {
         zoom : 15,
